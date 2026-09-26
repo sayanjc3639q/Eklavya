@@ -69,10 +69,10 @@ export function Navbar() {
               />
             </div>
             <div className="flex flex-col">
-              <span className="text-xl sm:text-2xl font-black tracking-tight text-[#155ea0] font-sans leading-none">
+              <span className="text-2xl sm:text-3xl font-bold tracking-normal text-[#155ea0] font-cursive leading-tight">
                 Eklavya
               </span>
-              <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-[#4886b2] mt-0.5">
+              <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-[#4886b2] -mt-1">
                 Hands That Care • HIT
               </span>
             </div>
@@ -166,10 +166,10 @@ export function Navbar() {
               />
             </div>
             <div>
-              <div className="text-lg font-black text-[#155ea0] leading-none">
+              <div className="text-2xl font-bold text-[#155ea0] font-cursive leading-tight">
                 Eklavya
               </div>
-              <div className="text-[9px] font-bold uppercase tracking-wider text-[#4886b2] mt-0.5">
+              <div className="text-[9px] font-bold uppercase tracking-wider text-[#4886b2] -mt-1">
                 Hands That Care • HIT
               </div>
             </div>
