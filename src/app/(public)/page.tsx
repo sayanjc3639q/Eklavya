@@ -1,7 +1,7 @@
-import { BhumiHero } from "@/features/public-site/components/bhumi-hero";
-import { BhumiAudienceCards } from "@/features/public-site/components/bhumi-audience-cards";
-import { BhumiTheChallenge } from "@/features/public-site/components/bhumi-the-challenge";
-import { BhumiWhatWeDo } from "@/features/public-site/components/bhumi-what-we-do";
+import { EklavyaHero } from "@/features/public-site/components/eklavya-hero";
+import { EklavyaAudienceCards } from "@/features/public-site/components/eklavya-audience-cards";
+import { EklavyaTheChallenge } from "@/features/public-site/components/eklavya-the-challenge";
+import { EklavyaWhatWeDo } from "@/features/public-site/components/eklavya-what-we-do";
 import { ReasonSomeoneSmiles } from "@/features/public-site/components/reason-someone-smiles";
 import { PowerToChangeLife } from "@/features/public-site/components/power-to-change";
 
@@ -14,10 +14,10 @@ export const metadata = {
 export default function HomePage() {
   return (
     <div className="flex flex-col min-h-screen bg-white">
-      <BhumiHero />
-      <BhumiAudienceCards />
-      <BhumiTheChallenge />
-      <BhumiWhatWeDo />
+      <EklavyaHero />
+      <EklavyaAudienceCards />
+      <EklavyaTheChallenge />
+      <EklavyaWhatWeDo />
       <ReasonSomeoneSmiles />
       <PowerToChangeLife />
     </div>

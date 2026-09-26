@@ -1,6 +1,5 @@
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
-import { Mail, Share2, UserCheck } from "lucide-react";
+import { Mail, Share2 } from "lucide-react";
 
 interface TeamMember {
   name: string;
@@ -22,7 +21,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     bio: "Guiding student initiatives, institutional permissions, and community outreach strategies since 2019.",
     initials: "SB",
     badge: "Faculty Patron",
-    accent: "border-t-4 border-t-[#5c2d91]",
+    accent: "bg-[#155ea0]",
   },
   {
     name: "Aman Sharma",
@@ -32,7 +31,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     bio: "Oversees overall volunteer scheduling, slum school curricula, and inter-college collaboration.",
     initials: "AS",
     badge: "Core Lead",
-    accent: "border-t-4 border-t-[#0078d4]",
+    accent: "bg-[#2e6ea6]",
   },
   {
     name: "Priya Mukherjee",
@@ -42,7 +41,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     bio: "Directs 24/7 rescue coordination, veterinary hospital logistics, and stray vaccination drives.",
     initials: "PM",
     badge: "Animal Wing Head",
-    accent: "border-t-4 border-t-[#107c41]",
+    accent: "bg-[#4886b2]",
   },
   {
     name: "Rohan Sen",
@@ -52,7 +51,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     bio: "Designs weekly lesson plans for slum children, study kit distribution, and student progress tracking.",
     initials: "RS",
     badge: "Education Lead",
-    accent: "border-t-4 border-t-[#0078d4]",
+    accent: "bg-[#155ea0]",
   },
   {
     name: "Sneha Das",
@@ -62,7 +61,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     bio: "Manages donation fund audits, bill verifications, and public disclosure of NGO expenditures.",
     initials: "SD",
     badge: "Audit & Treasury",
-    accent: "border-t-4 border-t-[#d83b01]",
+    accent: "bg-[#2e6ea6]",
   },
   {
     name: "Aniket Ghosh",
@@ -72,72 +71,74 @@ const TEAM_MEMBERS: TeamMember[] = [
     bio: "Mobilizes weekend volunteers for feeding routes and setup of street medical camps.",
     initials: "AG",
     badge: "Lead Volunteer",
-    accent: "border-t-4 border-t-[#008272]",
+    accent: "bg-[#5996b9]",
   },
 ];
 
 export function TeamView() {
   return (
-    <div className="flex flex-col">
-      {/* Header Banner */}
-      <section className="bg-gradient-to-b from-[#eff6fc] via-[#f9fbfd] to-white py-16 sm:py-20 border-b border-[#edebe9]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="text-xs font-bold uppercase tracking-widest text-[#0078d4] mb-3">
-            People Behind The Mission
+    <div className="flex flex-col bg-white">
+      
+      {/* Hero Header */}
+      <section className="relative w-full bg-[#0f273d] text-white overflow-hidden min-h-[460px] lg:min-h-[520px] flex items-center">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 w-full text-center">
+          <div className="max-w-3xl mx-auto">
+            <div className="text-xs font-bold uppercase tracking-widest text-[#bff1f6] mb-3">
+              THE TEAM • PASSION IN ACTION
+            </div>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.1]">
+              Meet the Faces Behind
+              <br />
+              <span className="font-serif italic font-normal text-[#a8deee]">
+                Eklavya HIT.
+              </span>
+            </h1>
+            <p className="mt-4 text-base sm:text-lg text-[#bff1f6]/90 leading-relaxed font-sans">
+              A united collective of engineering students, volunteer tutors, animal rescuers, and faculty mentors from Haldia Institute of Technology giving their best for the community.
+            </p>
           </div>
-          <h1 className="text-3xl sm:text-5xl font-extrabold text-[#242424] tracking-tight">
-            Meet the Eklavya Team
-          </h1>
-          <p className="mt-4 max-w-2xl mx-auto text-base sm:text-lg text-[#616161] leading-relaxed">
-            A united collective of students, faculty mentors, and volunteers at Haldia Institute of Technology giving their best for the community.
-          </p>
         </div>
       </section>
 
       {/* Team Grid */}
-      <section className="py-16 bg-[#faf9f8] border-b border-[#edebe9]">
+      <section className="py-24 bg-gradient-to-b from-white via-[#bff1f6]/20 to-white border-b border-[#89c3da]/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {TEAM_MEMBERS.map((member, idx) => (
               <div
                 key={idx}
-                className={`fluent-card p-6 flex flex-col justify-between ${member.accent} hover:border-[#0078d4] transition-all`}
+                className="rounded-3xl bg-white border-2 border-[#89c3da]/50 p-8 flex flex-col justify-between shadow-lg hover:shadow-2xl hover:border-[#155ea0] transition-all duration-300 group"
               >
                 <div>
-                  <div className="flex items-start justify-between mb-4">
-                    <Avatar className="h-14 w-14">
-                      <AvatarFallback>{member.initials}</AvatarFallback>
+                  <div className="flex items-start justify-between mb-6">
+                    <Avatar className="h-16 w-16 border-2 border-[#89c3da]">
+                      <AvatarFallback className="bg-[#bff1f6] text-[#155ea0] font-black text-lg">
+                        {member.initials}
+                      </AvatarFallback>
                     </Avatar>
-                    <Badge
-                      variant={
-                        member.category === "Faculty"
-                          ? "purple"
-                          : member.category === "Core Lead"
-                          ? "secondary"
-                          : "success"
-                      }
-                    >
+                    
+                    <div className="text-xs font-bold uppercase tracking-widest text-[#155ea0]">
                       {member.badge}
-                    </Badge>
+                    </div>
                   </div>
 
-                  <h3 className="text-lg font-bold text-[#242424]">{member.name}</h3>
-                  <div className="text-xs font-semibold text-[#0078d4]">{member.role}</div>
-                  <div className="text-xs text-[#707070] mb-3">{member.branch}</div>
+                  <h3 className="text-2xl font-bold text-[#0f273d]">{member.name}</h3>
+                  <div className="text-xs font-bold text-[#155ea0] mt-1">{member.role}</div>
+                  <div className="text-xs text-[#3b5368] mb-4">{member.branch}</div>
 
-                  <p className="text-xs text-[#616161] leading-relaxed mb-6">
+                  <p className="text-xs sm:text-sm text-[#3b5368] leading-relaxed mb-6">
                     {member.bio}
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-[#edebe9] flex items-center justify-between text-xs text-[#707070]">
-                  <span>HIT Haldia Chapter</span>
+                <div className="pt-4 border-t border-[#89c3da]/40 flex items-center justify-between text-xs text-[#3b5368]">
+                  <span className="font-semibold text-[#155ea0]">HIT Haldia Chapter</span>
                   <div className="flex items-center gap-2">
-                    <span className="p-1.5 rounded bg-[#f3f2f1] text-[#424242] hover:text-[#0078d4] cursor-pointer">
+                    <span className="p-2 rounded-full bg-[#bff1f6]/60 text-[#155ea0] hover:bg-[#155ea0] hover:text-white transition-colors cursor-pointer">
                       <Share2 className="h-3.5 w-3.5" />
                     </span>
-                    <span className="p-1.5 rounded bg-[#f3f2f1] text-[#424242] hover:text-[#0078d4] cursor-pointer">
+                    <span className="p-2 rounded-full bg-[#bff1f6]/60 text-[#155ea0] hover:bg-[#155ea0] hover:text-white transition-colors cursor-pointer">
                       <Mail className="h-3.5 w-3.5" />
                     </span>
                   </div>

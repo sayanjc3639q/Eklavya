@@ -21,7 +21,7 @@ const CHALLENGE_STATS = [
   },
 ];
 
-export function BhumiTheChallenge() {
+export function EklavyaTheChallenge() {
   return (
     <section className="py-28 bg-white border-b border-[#89c3da]/30">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -177,7 +177,7 @@ export function BhumiTheChallenge() {
 
           {/* Row 4: Stray Animal Distress & Neglect */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <div className="order-2 lg:order-1 space-y-4 lg:pr-6">
+            <div className="order-2 lg:order-1 space-y-4 lg:pr-4">
               <div className="text-xs font-bold uppercase tracking-widest text-[#155ea0]">
                 Animal Welfare Distress
               </div>

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export function BhumiHero() {
+export function EklavyaHero() {
   return (
     <section className="relative w-full bg-[#0f273d] text-white overflow-hidden min-h-[580px] lg:min-h-[640px] flex items-center">
       {/* Background Image of Real Volunteers */}

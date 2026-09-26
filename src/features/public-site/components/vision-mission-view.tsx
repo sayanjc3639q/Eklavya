@@ -45,7 +45,7 @@ export function VisionMissionView() {
   return (
     <div className="flex flex-col bg-white">
       
-      {/* 1. Hero Banner Matching Bhumi About/Vision Style */}
+      {/* 1. Hero Banner Matching Editorial Vision Style */}
       <section className="relative w-full bg-[#0f273d] text-white overflow-hidden min-h-[480px] lg:min-h-[540px] flex items-center">
         <div className="absolute inset-0 z-0">
           <Image

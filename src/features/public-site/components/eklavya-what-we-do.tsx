@@ -118,7 +118,7 @@ const STACKED_CARDS: ProgramCard[] = [
   },
 ];
 
-export function BhumiWhatWeDo() {
+export function EklavyaWhatWeDo() {
   return (
     <section className="py-24 bg-gradient-to-b from-white via-[#bff1f6]/20 to-white border-t border-[#89c3da]/30">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

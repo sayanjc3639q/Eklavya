@@ -32,11 +32,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable} scroll-smooth`}>
+    <html lang="en" className={`${inter.variable} ${playfair.variable} scroll-smooth`} suppressHydrationWarning>
       <head>
         <link rel="icon" href="/logo.jpg" type="image/jpeg" />
       </head>
-      <body className="font-sans antialiased bg-white text-[#242424] selection:bg-[#f39200] selection:text-white">
+      <body className="font-sans antialiased bg-white text-[#0f273d] selection:bg-[#155ea0] selection:text-white" suppressHydrationWarning>
         {children}
       </body>
     </html>
