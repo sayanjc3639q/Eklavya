@@ -1,100 +1,21 @@
 "use client";
 
 import { useState } from "react";
-import { Calendar, MapPin, Clock, CheckCircle2 } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { 
+  Calendar, 
+  MapPin, 
+  Clock, 
+  ArrowRight, 
+  BookOpen, 
+  Users, 
+  Sparkles,
+  CheckCircle2,
+  Heart
+} from "lucide-react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { Button } from "@/components/ui/button";
-
-interface EventItem {
-  id: string;
-  title: string;
-  category: "Education" | "Animal Welfare" | "Community";
-  date: string;
-  time: string;
-  location: string;
-  description: string;
-  status: "Upcoming" | "Completed";
-  impactBadge?: string;
-  accent: string;
-}
-
-const EVENTS_DATA: EventItem[] = [
-  {
-    id: "1",
-    title: "Diwali Slum Study & Stationery Distribution Drive",
-    category: "Education",
-    date: "November 08, 2026",
-    time: "3:30 PM - 6:30 PM",
-    location: "Railway Colony Slum Cluster, Haldia",
-    description:
-      "Distributing 150+ comprehensive education kits containing notebooks, drawing pads, geometry boxes, and solar study lamps for evening studies.",
-    status: "Upcoming",
-    accent: "bg-[#155ea0]",
-  },
-  {
-    id: "2",
-    title: "Campus-Wide Anti-Rabies Vaccination & Collar Drive",
-    category: "Animal Welfare",
-    date: "November 16, 2026",
-    time: "9:00 AM - 2:00 PM",
-    location: "HIT Main Campus & Surrounding Sectors",
-    description:
-      "Collaborative drive with Haldia Veterinary Hospital to inoculate 60+ stray dogs and fit reflective collars to prevent nighttime road accidents.",
-    status: "Upcoming",
-    accent: "bg-[#2e6ea6]",
-  },
-  {
-    id: "3",
-    title: "Winter Blanket & Woolen Distribution for Underprivileged",
-    category: "Community",
-    date: "December 12, 2026",
-    time: "4:00 PM - 7:00 PM",
-    location: "Durgachak & Haldia Municipality Areas",
-    description:
-      "Annual student collection drive delivering clean warm blankets and sweaters to elderly and slum children ahead of peak winter cold.",
-    status: "Upcoming",
-    accent: "bg-[#4886b2]",
-  },
-  {
-    id: "4",
-    title: "Independence Day Science & Fun Carnival for Kids",
-    category: "Education",
-    date: "August 15, 2026",
-    time: "10:00 AM - 3:00 PM",
-    location: "HIT Campus Ground, Haldia",
-    description:
-      "Over 90 slum children visited HIT laboratories, participated in simple robotics/science experiments, art competitions, and enjoyed festive lunch.",
-    status: "Completed",
-    impactBadge: "90+ Children Participated",
-    accent: "bg-[#155ea0]",
-  },
-  {
-    id: "5",
-    title: "Summer Hydration Bowl Installation for Stray Animals",
-    category: "Animal Welfare",
-    date: "May 20, 2026",
-    time: "8:00 AM - 1:00 PM",
-    location: "HIT Campus & City Center Haldia",
-    description:
-      "Installed 45 durable cement water bowls across campus and key town sectors to prevent dehydration and heatstroke in birds and stray dogs.",
-    status: "Completed",
-    impactBadge: "45 Water Bowls Installed",
-    accent: "bg-[#2e6ea6]",
-  },
-  {
-    id: "6",
-    title: "Back-to-School Basic Literacy Induction Camp",
-    category: "Education",
-    date: "April 10, 2026",
-    time: "4:00 PM - 6:30 PM",
-    location: "Brajolalchak Community Hall",
-    description:
-      "Conducted foundational reading assessments and enrolled 28 first-generation learners into weekend coaching batches.",
-    status: "Completed",
-    impactBadge: "28 First-Gen Learners",
-    accent: "bg-[#4886b2]",
-  },
-];
+import { EVENTS_DATA, EventItem } from "../data/events-data";
 
 export function EventsView() {
   const [selectedFilter, setSelectedFilter] = useState<string>("All");
@@ -113,33 +34,46 @@ export function EventsView() {
       
       {/* Hero Header */}
       <section className="relative w-full bg-[#0f273d] text-white overflow-hidden min-h-[460px] lg:min-h-[520px] flex items-center">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 w-full text-center">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/hero_volunteers.jpg"
+            alt="Eklavya volunteers in community drive"
+            fill
+            priority
+            className="object-cover object-center brightness-[0.35] contrast-[1.05]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0f273d]/90 via-[#0f273d]/60 to-transparent" />
+        </div>
+
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 w-full text-center">
           <div className="max-w-3xl mx-auto">
             <div className="text-xs font-bold uppercase tracking-widest text-[#bff1f6] mb-3">
-              GROUND ACTION • EVENTS &amp; CAMPS
+              GROUND ACTION • EVENTS, DRIVES &amp; STORIES
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.1]">
-              Upcoming Drives &amp;
+              Impact in Action across
               <br />
               <span className="font-serif italic font-normal text-[#a8deee]">
-                Milestone Initiatives.
+                Haldia.
               </span>
             </h1>
-            <p className="mt-4 text-base sm:text-lg text-[#bff1f6]/90 leading-relaxed font-sans">
-              Discover our scheduled weekend teaching sessions, vaccination camps, and street rescue drives across Haldia.
+            <p className="mt-4 text-base sm:text-lg text-[#bff1f6]/90 leading-relaxed font-sans max-w-2xl mx-auto">
+              Explore our scheduled weekend teaching sessions, vaccination camps, street rescue drives, and in-depth ground reports.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Events Section */}
-      <section className="py-24 bg-gradient-to-b from-white via-[#bff1f6]/20 to-white min-h-[600px] border-b border-[#89c3da]/30">
+      {/* Events Directory */}
+      <section className="py-20 bg-gradient-to-b from-white via-[#bff1f6]/15 to-white min-h-[600px] border-b border-[#89c3da]/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          {/* Category Filter */}
-          <div className="flex flex-wrap items-center justify-between gap-4 mb-10">
-            <div className="flex items-center gap-2">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#155ea0]">Filter Category:</span>
+          {/* Category Filter Pills */}
+          <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#155ea0] mr-2">
+                Category:
+              </span>
               {(["All", "Education", "Animal Welfare", "Community"] as const).map(
                 (category) => (
                   <button
@@ -147,8 +81,8 @@ export function EventsView() {
                     onClick={() => setSelectedFilter(category)}
                     className={`px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
                       selectedFilter === category
-                        ? "bg-[#155ea0] text-white shadow-md shadow-[#155ea0]/30"
-                        : "bg-white text-[#0f273d] border border-[#89c3da]/60 hover:bg-[#bff1f6]/30"
+                        ? "bg-[#155ea0] text-white shadow-md shadow-[#155ea0]/25"
+                        : "bg-white text-[#0f273d] border border-[#89c3da]/60 hover:bg-[#bff1f6]/40"
                     }`}
                   >
                     {category}
@@ -156,118 +90,43 @@ export function EventsView() {
                 )
               )}
             </div>
+
+            <div className="text-xs text-[#3b5368] font-medium hidden sm:block">
+              Showing stories from Haldia Institute of Technology
+            </div>
           </div>
 
           {/* Tabs for Upcoming vs Past */}
           <Tabs defaultValue="upcoming" className="w-full">
             <TabsList className="mb-10 bg-[#bff1f6]/40 p-1.5 rounded-full border border-[#89c3da]/60 h-auto">
-              <TabsTrigger value="upcoming" className="rounded-full px-6 py-2.5 text-xs font-bold uppercase tracking-wider data-[state=active]:bg-[#155ea0] data-[state=active]:text-white shadow-sm">
+              <TabsTrigger 
+                value="upcoming" 
+                className="rounded-full px-6 py-2.5 text-xs font-bold uppercase tracking-wider data-[state=active]:bg-[#155ea0] data-[state=active]:text-white shadow-sm transition-all"
+              >
                 Upcoming Events &amp; Drives
               </TabsTrigger>
-              <TabsTrigger value="past" className="rounded-full px-6 py-2.5 text-xs font-bold uppercase tracking-wider data-[state=active]:bg-[#155ea0] data-[state=active]:text-white shadow-sm">
-                Past Completed Milestones
+              <TabsTrigger 
+                value="past" 
+                className="rounded-full px-6 py-2.5 text-xs font-bold uppercase tracking-wider data-[state=active]:bg-[#155ea0] data-[state=active]:text-white shadow-sm transition-all"
+              >
+                Past Milestones &amp; Blogs
               </TabsTrigger>
             </TabsList>
 
-            {/* Upcoming Tab Content */}
+            {/* UPCOMING TAB */}
             <TabsContent value="upcoming">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {filterEvents("Upcoming").map((event) => (
-                  <div
-                    key={event.id}
-                    className="rounded-3xl bg-white border-2 border-[#89c3da]/50 p-8 flex flex-col justify-between shadow-lg hover:shadow-2xl hover:border-[#155ea0] transition-all duration-300"
-                  >
-                    <div>
-                      <div className="flex items-center justify-between mb-4">
-                        <span className="text-xs font-bold uppercase tracking-widest text-[#155ea0]">
-                          {event.category}
-                        </span>
-                        <span className="text-[11px] font-bold text-[#155ea0] bg-[#bff1f6]/60 px-3 py-1 rounded-full border border-[#89c3da]/40">
-                          Registration Open
-                        </span>
-                      </div>
-
-                      <h3 className="text-xl font-bold text-[#0f273d] mb-4 leading-snug">
-                        {event.title}
-                      </h3>
-
-                      <div className="space-y-2.5 text-xs text-[#3b5368] mb-6">
-                        <div className="flex items-center gap-2 font-medium">
-                          <Calendar className="h-4 w-4 text-[#155ea0]" />
-                          <span>{event.date}</span>
-                        </div>
-                        <div className="flex items-center gap-2 font-medium">
-                          <Clock className="h-4 w-4 text-[#155ea0]" />
-                          <span>{event.time}</span>
-                        </div>
-                        <div className="flex items-start gap-2 font-medium">
-                          <MapPin className="h-4 w-4 text-[#155ea0] shrink-0 mt-0.5" />
-                          <span>{event.location}</span>
-                        </div>
-                      </div>
-
-                      <p className="text-xs sm:text-sm text-[#3b5368] leading-relaxed mb-6">
-                        {event.description}
-                      </p>
-                    </div>
-
-                    <div className="pt-4 border-t border-[#89c3da]/40">
-                      <button className="w-full bg-[#155ea0] hover:bg-[#2e6ea6] text-white py-3 rounded-full text-xs font-bold uppercase tracking-wider shadow-md transition-all cursor-pointer">
-                        Volunteer for this Drive
-                      </button>
-                    </div>
-                  </div>
+                  <EventCard key={event.id} event={event} isUpcoming={true} />
                 ))}
               </div>
             </TabsContent>
 
-            {/* Past Tab Content */}
+            {/* PAST TAB */}
             <TabsContent value="past">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {filterEvents("Completed").map((event) => (
-                  <div
-                    key={event.id}
-                    className="rounded-3xl bg-white border-2 border-[#89c3da]/40 p-8 flex flex-col justify-between shadow-md opacity-90"
-                  >
-                    <div>
-                      <div className="flex items-center justify-between mb-4">
-                        <span className="text-xs font-bold uppercase tracking-widest text-[#3b5368]">
-                          {event.category}
-                        </span>
-                        {event.impactBadge && (
-                          <span className="text-[11px] font-bold text-[#155ea0] bg-[#bff1f6]/60 px-3 py-1 rounded-full border border-[#89c3da]/40">
-                            {event.impactBadge}
-                          </span>
-                        )}
-                      </div>
-
-                      <h3 className="text-xl font-bold text-[#0f273d] mb-4 leading-snug">
-                        {event.title}
-                      </h3>
-
-                      <div className="space-y-2.5 text-xs text-[#3b5368] mb-6">
-                        <div className="flex items-center gap-2">
-                          <Calendar className="h-4 w-4 text-[#3b5368]" />
-                          <span>{event.date}</span>
-                        </div>
-                        <div className="flex items-start gap-2">
-                          <MapPin className="h-4 w-4 text-[#3b5368] shrink-0 mt-0.5" />
-                          <span>{event.location}</span>
-                        </div>
-                      </div>
-
-                      <p className="text-xs sm:text-sm text-[#3b5368] leading-relaxed mb-6">
-                        {event.description}
-                      </p>
-                    </div>
-
-                    <div className="pt-4 border-t border-[#89c3da]/40 flex items-center justify-between text-xs text-[#155ea0] font-semibold">
-                      <span className="flex items-center gap-1.5">
-                        <CheckCircle2 className="h-4 w-4 text-[#155ea0]" />
-                        Successfully Executed in Haldia
-                      </span>
-                    </div>
-                  </div>
+                  <EventCard key={event.id} event={event} isUpcoming={false} />
                 ))}
               </div>
             </TabsContent>
@@ -275,6 +134,109 @@ export function EventsView() {
 
         </div>
       </section>
+
+      {/* Join the Movement CTA */}
+      <section className="py-16 bg-[#155ea0] text-white text-center">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6">
+          <div className="text-xs font-bold uppercase tracking-widest text-[#bff1f6] mb-2">
+            HAVE AN IDEA FOR A COMMUNITY DRIVE?
+          </div>
+          <h3 className="text-3xl font-extrabold text-white">
+            Lead a Drive with Eklavya HIT
+          </h3>
+          <p className="mt-3 text-sm text-[#bff1f6] max-w-xl mx-auto">
+            If you are a student or faculty member at Haldia Institute of Technology with an initiative idea, collaborate with our ground team.
+          </p>
+          <div className="mt-7 flex flex-wrap justify-center gap-4">
+            <Link href="/about-us">
+              <button className="bg-white text-[#155ea0] hover:bg-[#bff1f6] px-8 py-3 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg transition-all cursor-pointer">
+                Volunteer with Us
+              </button>
+            </Link>
+            <Link href="/donate">
+              <button className="border-2 border-[#bff1f6] text-white hover:bg-[#bff1f6] hover:text-[#155ea0] px-8 py-3 rounded-full text-xs font-bold uppercase tracking-wider transition-all cursor-pointer">
+                Fund an Event
+              </button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  );
+}
+
+function EventCard({ event, isUpcoming }: { event: EventItem; isUpcoming: boolean }) {
+  return (
+    <div className="group rounded-3xl bg-white border-2 border-[#89c3da]/50 overflow-hidden flex flex-col justify-between shadow-lg hover:shadow-2xl hover:border-[#155ea0] transition-all duration-300">
+      
+      {/* Top Media / Cover Image Container */}
+      <div>
+        <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-100">
+          <Image
+            src={event.coverImage}
+            alt={event.title}
+            fill
+            className="object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0f273d]/75 via-transparent to-transparent" />
+          
+          {/* Top Badges */}
+          <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-white bg-[#155ea0]/90 backdrop-blur-md px-3 py-1 rounded-full border border-white/20 shadow-sm">
+              {event.category}
+            </span>
+            {event.impactBadge && (
+              <span className="text-[10px] font-bold text-[#0f273d] bg-[#bff1f6]/95 backdrop-blur-md px-2.5 py-1 rounded-full border border-[#89c3da] shadow-sm">
+                {event.impactBadge}
+              </span>
+            )}
+          </div>
+
+          {/* Bottom Title bar overlay on Image */}
+          <div className="absolute bottom-3 left-4 right-4 text-white">
+            <div className="flex items-center gap-1.5 text-[11px] text-[#bff1f6] font-medium">
+              <Calendar className="h-3.5 w-3.5 text-[#89c3da]" />
+              <span>{event.date}</span>
+              <span className="mx-1">•</span>
+              <Clock className="h-3.5 w-3.5 text-[#89c3da]" />
+              <span>{event.time}</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Card Body */}
+        <div className="p-6">
+          <h3 className="text-lg sm:text-xl font-bold text-[#0f273d] group-hover:text-[#155ea0] transition-colors line-clamp-2 leading-snug mb-3">
+            {event.title}
+          </h3>
+
+          <div className="flex items-start gap-2 text-xs text-[#3b5368] mb-4">
+            <MapPin className="h-4 w-4 text-[#155ea0] shrink-0 mt-0.5" />
+            <span className="line-clamp-1">{event.location}</span>
+          </div>
+
+          <p className="text-xs sm:text-sm text-[#3b5368] leading-relaxed line-clamp-3 mb-4">
+            {event.summary}
+          </p>
+        </div>
+      </div>
+
+      {/* Card Footer with Read More CTA */}
+      <div className="px-6 pb-6 pt-2 border-t border-[#89c3da]/30 flex items-center justify-between gap-3">
+        <div className="text-[11px] font-semibold text-[#5996b9]">
+          {event.readTime}
+        </div>
+
+        <Link 
+          href={`/events/${event.slug}`}
+          className="inline-flex items-center gap-2 bg-[#155ea0] hover:bg-[#2e6ea6] text-white px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-md shadow-[#155ea0]/20 transition-all active:scale-95 group/btn cursor-pointer"
+        >
+          <span>Read More</span>
+          <ArrowRight className="h-3.5 w-3.5 group-hover/btn:translate-x-1 transition-transform" />
+        </Link>
+      </div>
+
     </div>
   );
 }
